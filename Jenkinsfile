@@ -12,6 +12,12 @@ stages{
         sh "mv target/*.jar target/game.jar"
         }
     }
-
+    stage("Deploy"){
+        steps{
+            sshagent(['deploy_user']) {
+             sh "scp -o StrictHostKeyChecking=no Guessing_game/target/game.jar ec2-user@13.234.112.197:/opt/tomcat/webapps"
+}
+        }
+    }
     }
 }
