@@ -15,7 +15,7 @@ stages{
     stage("Deploy"){
         steps{
             sshagent(['deploy_user']) {
-             sh "scp -o StrictHostKeyChecking=no Guessing_game/target/game.jar ec2-user@13.234.112.197:/opt/tomcat/webapps"
+             sh "scp -o StrictHostKeyChecking=no /var/lib/jenkins/workspace/Guessing_game/target/game.jar ec2-user@13.234.112.197:/opt/tomcat/webapps"
 }
         }
     }
